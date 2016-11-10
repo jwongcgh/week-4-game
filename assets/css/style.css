@@ -1,0 +1,85 @@
+html, body {
+	/*width: 960px;*/
+	box-sizing: border-box;
+	/*margin: 0 auto;*/
+	padding: 0;
+}
+
+.container {
+	max-width: 90%;
+	/*border: 1px blue dotted;*/
+	border-radius: 15px;
+	margin: 0 auto;
+	/*padding: 10px 0 10px 0;*/
+}
+
+.header {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 15px;
+}
+
+hr {
+	width: 90%;
+	color: grey;
+	margin-bottom: 15px;
+}
+
+.message {
+	padding: 5px 15px 10px 15px;
+	text-align: center
+}
+
+.footer {
+	text-align: center;
+	margin: 10px 0 15px 0;
+}
+#stats, #gameProgress {
+	/*border: green dotted 1px;*/
+	overflow: auto;	
+}
+
+.wins-js, .targetNumber-js {
+	float: left;
+	width: 20%;
+	height: auto;
+	border: dotted blue 1px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+
+.losses-js, .currentSum-js {
+	float: right;
+	width: 20%;
+	height: auto;
+	border: dotted orange 1px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+span {
+	/*margin: 0;*/
+}
+
+
+#crystals {
+	text-align: center;
+	clear: both;
+	max-width: 100%;
+	/*border: orange dotted 1px;*/
+}
+
+.crystalButton {
+	padding: 10px;
+}
+
+img {
+	max-width: 30%;
+	height: auto;
+}
+
