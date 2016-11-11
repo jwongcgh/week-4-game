@@ -83,8 +83,8 @@ $(document).ready(function() {
         // *** set up crystals *** //
 
         for (i = 0; i < crystalsVal.length; i++) {
-            var crystalImg = "image";
-            crystalImg += i + ".jpg";
+            var crystalImg = "assets/images/image";
+            crystalImg += i + ".png";
 
             // creating img element
             var imgButt = $("<img>");
