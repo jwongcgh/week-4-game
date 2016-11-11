@@ -23,24 +23,22 @@ html, body {
 hr {
 	width: 90%;
 	color: grey;
-	margin-bottom: 15px;
-}
+	margin-bottom: 15px 0 15px 0;
 
-.message {
-	padding: 5px 15px 10px 15px;
-	text-align: center
 }
 
 .footer {
 	text-align: center;
 	margin: 10px 0 15px 0;
 }
-#stats, #gameProgress {
-	/*border: green dotted 1px;*/
-	overflow: auto;	
+
+#stats, #gameProgress, #message {
+	/*overflow: auto;	*/
+	/*margin-bottom: 15px;*/
+	text-align: center;
 }
 
-.wins-js, .targetNumber-js {
+.wins-js, .targetNumber-js, .inst {
 	float: left;
 	width: 20%;
 	height: auto;
@@ -49,9 +47,11 @@ hr {
 	text-align: center;
 	border-radius: 5px;
 	margin-left: 10px;
+	margin-bottom: 10px;
+	overflow: visible;
 }
 
-.losses-js, .currentSum-js {
+.losses-js, .currentSum-js, .startOver  {
 	float: right;
 	width: 20%;
 	height: auto;
@@ -60,10 +60,23 @@ hr {
 	text-align: center;
 	border-radius: 5px;
 	margin-right: 10px;
+	overflow: visible;
 }
 
-span {
-	/*margin: 0;*/
+.message {
+	clear: both;
+	max-width: 80%;
+	height: auto;
+	/*text-align: left;*/
+	border: dotted green 1px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	padding: 5px 10px 5px 10px;
+}
+
+.targetNumber-js, .currentSum-js {
+	font-size: 1.5em;
 }
 
 
@@ -71,7 +84,6 @@ span {
 	text-align: center;
 	clear: both;
 	max-width: 100%;
-	/*border: orange dotted 1px;*/
 }
 
 .crystalButton {
@@ -83,4 +95,3 @@ img {
 	height: auto;
 	border-radius: 20px;
 }
-

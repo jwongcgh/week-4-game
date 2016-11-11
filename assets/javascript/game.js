@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("body").css("background-image", "url('brickwall.png')");
+    $("body").css("background-image", "url('assets/images/brickwall.png')");
 
     // ******************** Variables declaration ***********************
 
@@ -47,6 +47,50 @@ $(document).ready(function() {
     $(".currentSum-js").append($targetSum);
     $(".targetTrack-js").html("0");
     $(".targetSum-js").html("0");
+
+    // adding instructions and startOver display fields
+    var $inst = $("<div>");
+    var $startOver = $("<div>");
+    $inst.addClass("inst");
+    $startOver.addClass("startOver");
+    $("#message").append($inst, $startOver);
+    $(".inst").html("Instructions");
+    $(".startOver").html("Star Over");
+
+    // adding instruction message
+    // var text = "Each crystal has a value. Clicking on any of them will add to your score.<br> Match your score to the target's value and you win.<br> Crystal's value will change on each new game.<br><br>Click on message to hide text.</p>";
+    // how to dynamically indent without creating new div or a list
+    var note1 = "&#8226  Each crystal has a value. Clicking on any of them will add to your score.";
+    var note2 = "&#8226  Match your score to the target's value and you win. Crystal's value will change on each new game.";
+    var note3 = "&#8226  Start Over will reset all values and start new game. You will lose your accumulated wins though.";
+    var note4 = "&#42&#42&#42  Click on message to hide text &#42&#42&#42";
+
+    var $pseudoModal = $("<div>");
+    $pseudoModal.addClass("message");
+    $("#stats").append($pseudoModal);
+
+    $(".message").css({ display: "none" });
+    $('.inst').mousedown(function() {
+        $(".message").css({ display: "block" });
+        $(".message").html(note1 + "<br>" + note2 + "<br>" + note3 + "<br>" + "<br>" + note4);
+        
+        // ****  Not working fade in slow
+        // $('.message').fadeIn("slow", function(){
+        //              $(".message").html('<p>' + text + '<p>');
+        // });
+    });
+    $('.message').mouseup(function() {
+        $('.message').fadeOut("slow")
+    });
+
+    //  Start Over button on click
+
+
+
+
+
+
+
 
     // ******************** Let's Play *********************** //
 
