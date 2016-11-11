@@ -10,9 +10,11 @@ $(document).ready(function() {
     var randomTarget;
     var wins = 0;
     var losses = 0;
+    var reset = true;
+    // var crystalNumber = "crystal";
 
     // ******************** creating new elements in html to be displayed ***********************
-    // adding wins and losses display fileds
+    // adding wins and losses display fieldds
     var $wins = $("<div>");
     var $losses = $("<div>");
     $wins.addClass("wins-js");
@@ -30,7 +32,7 @@ $(document).ready(function() {
     $(".winsTrack").html("0");
     $(".lossesTrack").html("0");
 
-    // adding targetNumber and currentSum display fileds
+    // adding targetNumber and currentSum display fields
     var $targetNumber = $("<div>");
     var $currentSum = $("<div>");
     $targetNumber.addClass("targetNumber-js");
@@ -58,11 +60,10 @@ $(document).ready(function() {
     $(".startOver").html("Star Over");
 
     // adding instruction message
-    // var text = "Each crystal has a value. Clicking on any of them will add to your score.<br> Match your score to the target's value and you win.<br> Crystal's value will change on each new game.<br><br>Click on message to hide text.</p>";
-    // how to dynamically indent without creating new div or a list
+    // how to dynamically indent without creating new div or a list???
     var note1 = "&#8226  Each crystal has a value. Clicking on any of them will add to your score.";
     var note2 = "&#8226  Match your score to the target's value and you win. Crystal's value will change on each new game.";
-    var note3 = "&#8226  Start Over will reset all values and start new game. You will lose your accumulated wins though.";
+    var note3 = "&#8226  Start Over will reset all values and start new game. You will lose your accumulated wins.";
     var note4 = "&#42&#42&#42  Click on message to hide text &#42&#42&#42";
 
     var $pseudoModal = $("<div>");
@@ -72,8 +73,7 @@ $(document).ready(function() {
     $(".message").css({ display: "none" });
     $('.inst').mousedown(function() {
         $(".message").css({ display: "block" });
-        $(".message").html(note1 + "<br>" + note2 + "<br>" + note3 + "<br>" + "<br>" + note4);
-        
+        $(".message").html(note1 + "<br>" + note2 + "<br>" + note3 + "<br>" + "<br>" + "<p>" + note4 + "</p>");
         // ****  Not working fade in slow
         // $('.message').fadeIn("slow", function(){
         //              $(".message").html('<p>' + text + '<p>');
@@ -83,12 +83,6 @@ $(document).ready(function() {
         $('.message').fadeOut("slow")
     });
 
-    //  Start Over button on click
-
-
-
-
-
 
 
 
@@ -96,7 +90,17 @@ $(document).ready(function() {
 
     letsPlay();
 
-    // *** initialize/reset *** //
+
+    // *** Button press Start new game - resets all to zero *** //
+    $('.startOver').on("click", function() {
+        wins = 0;
+        $(".winsTrack").html(wins);
+        losses = 0;
+        $(".lossesTrack").html(losses);
+        startOver();
+    });
+
+    // *** During game initialize/reset function *** //
     function startOver() {
         addVal = 0;
         crystalsVal = [];
@@ -107,7 +111,7 @@ $(document).ready(function() {
     }
 
     function letsPlay() {
-
+        reset = true;
         // *** Generate a random number between 1 and 15 *** //
         for (i = 0; i < 4; i++) {
             random1 = Math.floor(Math.random() * 15) + 1;
@@ -117,7 +121,6 @@ $(document).ready(function() {
         console.log(crystalsVal);
 
         // *** Generate a random number between 21 and 120 *** //
-
         randomTarget = Math.floor(Math.random() * 100) + 21;
         $(".targetNumber").html("target number = " + randomTarget);
         $(".targetTrack-js").html(randomTarget);
@@ -135,6 +138,7 @@ $(document).ready(function() {
 
             // adding attributes and data to images
             imgButt.attr("src", crystalImg);
+
             imgButt.addClass("crystalButton");
             imgButt.attr("data-test", crystalsVal[i]);
 
@@ -143,7 +147,6 @@ $(document).ready(function() {
         }
 
         // *** on click *** //
-
         $(".crystalButton").on("click", function() {
             var temp = ($(this).data("test"));
             addVal += temp;

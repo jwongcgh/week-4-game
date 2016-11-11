@@ -1,16 +1,11 @@
 html, body {
-	/*width: 960px;*/
 	box-sizing: border-box;
-	/*margin: 0 auto;*/
-	padding: 0;
 }
 
 .container {
-	max-width: 90%;
-	/*border: 1px blue dotted;*/
+	max-width: 960px;
 	border-radius: 15px;
 	margin: 0 auto;
-	/*padding: 10px 0 10px 0;*/
 }
 
 .header {
@@ -18,23 +13,22 @@ html, body {
 	font-size: 2em;
 	font-weight: bold;
 	padding: 15px;
+	text-shadow: 1px 2px lightblue;
 }
 
 hr {
 	width: 90%;
 	color: grey;
 	margin-bottom: 15px 0 15px 0;
-
 }
 
 .footer {
 	text-align: center;
 	margin: 10px 0 15px 0;
+	text-shadow: 1px 2px lightblue;
 }
 
-#stats, #gameProgress, #message {
-	/*overflow: auto;	*/
-	/*margin-bottom: 15px;*/
+#stats, #gameProgress {
 	text-align: center;
 }
 
@@ -42,7 +36,7 @@ hr {
 	float: left;
 	width: 20%;
 	height: auto;
-	border: dotted blue 1px;
+	border: dotted #7BB2FF 1px;
 	padding: 10px;
 	text-align: center;
 	border-radius: 5px;
@@ -65,20 +59,28 @@ hr {
 
 .message {
 	clear: both;
-	max-width: 80%;
+	max-width: 60%;
 	height: auto;
-	/*text-align: left;*/
+	text-align: left;
 	border: dotted green 1px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 15px;
-	padding: 5px 10px 5px 10px;
+}
+
+p {
+	text-align: center;
+	color: purple;
 }
 
 .targetNumber-js, .currentSum-js {
 	font-size: 1.5em;
 }
 
+.targetTrack-js, .targetSum-js, .winsTrack, .lossesTrack {
+	color: blue;
+	text-shadow: 1px 1px orange;
+}
 
 #crystals {
 	text-align: center;
@@ -94,4 +96,18 @@ img {
 	max-width: 30%;
 	height: auto;
 	border-radius: 20px;
+}
+
+@media screen and (max-width: 640px) {
+	.message { padding: 8px 5% 8px 5%; }
+	.crystalButton { padding: 10px 15px 10px 15px; }
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px) {
+	.message { padding: 8px 10% 8px 10%; }
+	.crystalButton { padding: 10px 30px 10px 30px; }
+}
+
+@media screen and (min-width: 769px) {
+	.message { padding: 8px 15% 8px 15%; }
 }
