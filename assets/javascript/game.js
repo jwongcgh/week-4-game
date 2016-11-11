@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $("body").css("background-image", "url('assets/images/brickwall.png')");
 
-    // ******************** Variables declaration ***********************
+    // ******************************** Variables declaration *********************************** //
 
     var addVal = 0;
     var crystalsVal = [];
@@ -11,9 +11,9 @@ $(document).ready(function() {
     var wins = 0;
     var losses = 0;
     var reset = true;
-    // var crystalNumber = "crystal";
 
-    // ******************** creating new elements in html to be displayed ***********************
+
+    // ******************** creating new elements in html to be displayed *********************** //
     // adding wins and losses display fieldds
     var $wins = $("<div>");
     var $losses = $("<div>");
@@ -59,8 +59,7 @@ $(document).ready(function() {
     $(".inst").html("Instructions");
     $(".startOver").html("Star Over");
 
-    // adding instruction message
-    // how to dynamically indent without creating new div or a list???
+    // adding instructions message when clicking on Star Over
     var note1 = "&#8226  Each crystal has a value. Clicking on any of them will add to your score.";
     var note2 = "&#8226  Match your score to the target's value and you win. Crystal's value will change on each new game.";
     var note3 = "&#8226  Start Over will reset all values and start new game. You will lose your accumulated wins.";
@@ -74,24 +73,17 @@ $(document).ready(function() {
     $('.inst').mousedown(function() {
         $(".message").css({ display: "block" });
         $(".message").html(note1 + "<br>" + note2 + "<br>" + note3 + "<br>" + "<br>" + "<p>" + note4 + "</p>");
-        // ****  Not working fade in slow
-        // $('.message').fadeIn("slow", function(){
-        //              $(".message").html('<p>' + text + '<p>');
-        // });
     });
+
     $('.message').mouseup(function() {
         $('.message').fadeOut("slow")
     });
 
-
-
-
-    // ******************** Let's Play *********************** //
+    // ************************************* Let's Play **************************************** //
 
     letsPlay();
 
-
-    // *** Button press Start new game - resets all to zero *** //
+    // *** Button press Start new game - resets all stats to zero *** //
     $('.startOver').on("click", function() {
         wins = 0;
         $(".winsTrack").html(wins);
@@ -100,7 +92,7 @@ $(document).ready(function() {
         startOver();
     });
 
-    // *** During game initialize/reset function *** //
+    // *** Next game initialize/reset *** //
     function startOver() {
         addVal = 0;
         crystalsVal = [];
@@ -118,7 +110,7 @@ $(document).ready(function() {
             crystalsVal.push(random1);
         }
 
-        console.log(crystalsVal);
+        // console.log(crystalsVal);
 
         // *** Generate a random number between 21 and 120 *** //
         randomTarget = Math.floor(Math.random() * 100) + 21;
@@ -168,11 +160,7 @@ $(document).ready(function() {
             } else {
                 console.log("Not there yet. Keep going")
             };
-
         });
-
-
     } // end of letsPlay
-
 
 }); // end of document ready function
