@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 
     // ******************** creating new elements in html to be displayed *********************** //
-    // adding wins and losses display fieldds
+    // dynamically adding wins and losses display fieldds
     var $wins = $("<div>");
     var $losses = $("<div>");
     $wins.addClass("wins-js");
@@ -32,7 +32,7 @@ $(document).ready(function() {
     $(".winsTrack").html("0");
     $(".lossesTrack").html("0");
 
-    // adding targetNumber and currentSum display fields
+    // dynamically adding targetNumber and currentSum display fields
     var $targetNumber = $("<div>");
     var $currentSum = $("<div>");
     $targetNumber.addClass("targetNumber-js");
