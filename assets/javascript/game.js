@@ -98,7 +98,6 @@ $(document).ready(function() {
         crystalsVal = [];
         $("#crystals").empty();
         $(".targetSum-js").html(addVal);
-        console.log("start Over");
         letsPlay();
     }
 
@@ -110,14 +109,10 @@ $(document).ready(function() {
             crystalsVal.push(random1);
         }
 
-        // console.log(crystalsVal);
-
         // *** Generate a random number between 21 and 120 *** //
         randomTarget = Math.floor(Math.random() * 100) + 21;
         $(".targetNumber").html("target number = " + randomTarget);
         $(".targetTrack-js").html(randomTarget);
-        console.log("targetNumber is= " + randomTarget);
-
 
         // *** set up crystals *** //
 
@@ -142,23 +137,20 @@ $(document).ready(function() {
         $(".crystalButton").on("click", function() {
             var temp = ($(this).data("test"));
             addVal += temp;
-            console.log("addVal= " + addVal);
             // displaying current click sum
             $(".targetSum-js").html(addVal);
             if (addVal == randomTarget) {
-                console.log("You've got it!");
                 wins++;
                 // displaying number of wins
                 $(".winsTrack").html(wins);
                 startOver();
             } else if (addVal > randomTarget) {
-                console.log("You've lost");
                 losses++;
                 // tracking number of losses
                 $(".lossesTrack").html(losses);
                 startOver();
             } else {
-                console.log("Not there yet. Keep going")
+                // console.log("Not there yet. Keep going")
             };
         });
     } // end of letsPlay
